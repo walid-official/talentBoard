@@ -2,8 +2,20 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
+import { GoogleLogin } from "../../google/GoogleLogin"
+import { useRouter } from "next/navigation"
+import useAuth from "@/hooks/useAuth"
+import { LogoutButton } from './../../authntication/LogoutButton';
 
 export const Hero = () => {
+  const router = useRouter()
+  const isAuthenticated = useAuth();
+
+  if (isAuthenticated === null) return <p>Loading...</p>;
+
+const handleLogin = () => {
+  router.push("/signin");
+};
   return (
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Background shapes */}
@@ -91,16 +103,24 @@ export const Hero = () => {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="flex flex-wrap gap-4"
             >
-              <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-8 py-3.5 rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 transition duration-300">
+              <button onClick={handleLogin} className="cursor-pointer bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-8 py-3.5 rounded-xl hover:shadow-lg hover:shadow-indigo-500/30 transition duration-300">
                 Get Started
               </button>
-              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3.5 rounded-xl hover:bg-white/20 transition duration-300">
+              <button className="cursor-pointer bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3.5 rounded-xl hover:bg-white/20 transition duration-300">
                 Learn More
               </button>
+              <LogoutButton />
             </motion.div>
           </motion.div>
         </div>
       </div>
+      <div>
+      {isAuthenticated ? (
+        <p>✅ Logged in</p>
+      ) : (
+        <p>🚫 Logged out</p>
+      )}
+    </div>
     </section>
   )
 }

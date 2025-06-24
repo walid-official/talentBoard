@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { GoogleLogin } from "../../google/GoogleLogin"
+import { GoogleLogin } from "../../google/GoogleAuthSection"
 import { useRouter } from "next/navigation"
 import useAuth from "@/hooks/useAuth"
 import { LogoutButton } from './../../authntication/LogoutButton';

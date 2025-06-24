@@ -11,8 +11,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <QueryClientProvider client={queryClient}>
         <AntdRegistry>
-  
-      <ReactQueryDevtools initialIsOpen={false} />
+           <ReactQueryDevtools initialIsOpen={false} />
         {children}  
         </AntdRegistry>
       </QueryClientProvider>

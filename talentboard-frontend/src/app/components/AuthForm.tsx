@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { useSigninMutation,useSignupMutation } from '@/apis/auth/queries';
+import GoogleAuthSection from './google/GoogleAuthSection';
+
 
 const { Option } = Select;
 const { Title, Text } = Typography;
@@ -155,6 +157,7 @@ const AuthForm = ({ isRegister }: { isRegister: boolean }) => {
             </Text>
           </div>
         </Form>
+        <GoogleAuthSection />
       </Card>
     </motion.div>
   );

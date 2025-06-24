@@ -4,12 +4,15 @@ import { Hero } from '../components/home/hero/Hero';
 import { Features } from '../components/home/features/Features';
 import { Process } from '../components/home/process/Process';
 import { Footer } from '../components/home/footer/Footer';
+import GoogleAuthSection from '../components/google/GoogleAuthSection';
+// import { GoogleAuthSection } from '@/app/components/google/GoogleAuthSection';
 
 const page = () => {
   return (
     <div>
       {/* <Navbar /> */}
       <Hero />
+      <GoogleAuthSection />
       <Features />
       <Process />
       <Footer />

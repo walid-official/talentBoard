@@ -1,8 +1,8 @@
-import { UserDashboardLayout } from './UserDashboardLayout';
+import { UserLayout } from './UserLayout';
 export default function UserDashboardRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return <UserDashboardLayout>{children}</UserDashboardLayout>;
+  return <UserLayout>{children}</UserLayout>;
 }
